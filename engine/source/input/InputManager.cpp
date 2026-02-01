@@ -8,7 +8,6 @@ namespace eng
         {
             return;
         }
-
         m_keys[key] = pressed;
     }
 

@@ -6,7 +6,7 @@
 
 namespace eng
 {
-    void keyCallack(GLFWwindow* window, int key, int, int action, int)
+    void keyCallback(GLFWwindow* window, int key, int, int action, int)
     {
         auto& inputManager = eng::Engine::GetInstance().GetInputManager();
         if (action == GLFW_PRESS)
@@ -32,6 +32,10 @@ namespace eng
             return false;
         }
 
+#if defined (__linux__)
+        glfwInitHint(GLFW_PLATFORM, GLFW_PLATFORM_X11);
+#endif
+
         if (!glfwInit())
         {
             return false;
@@ -39,9 +43,9 @@ namespace eng
 
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-        glfwWindowHint(GLFW_OPENGL_CORE_PROFILE, GLFW_OPENGL_PROFILE);
+        glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-        m_window = glfwCreateWindow(width, height, "Game Development Project", nullptr, nullptr);
+        m_window = glfwCreateWindow(width, height, "GameDevelopmentProject", nullptr, nullptr);
 
         if (m_window == nullptr)
         {
@@ -50,7 +54,7 @@ namespace eng
             return false;
         }
 
-        glfwSetKeyCallback(m_window, keyCallack);
+        glfwSetKeyCallback(m_window, keyCallback);
 
         glfwMakeContextCurrent(m_window);
 
