@@ -89,7 +89,7 @@ namespace eng
             m_graphicsAPI.SetClearColor(1.0f, 1.0f, 1.0f, 1.0f);
             m_graphicsAPI.ClearBuffers();
 
-            m_renderQueue.Draw(m_graphicsAPI);
+            m_rederQueue.Draw(m_graphicsAPI);
 
             glfwSwapBuffers(m_window);
         }
@@ -128,6 +128,6 @@ namespace eng
 
     RenderQueue& Engine::GetRenderQueue()
     {
-        return m_renderQueue;
+        return m_rederQueue;
     }
 }

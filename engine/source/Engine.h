@@ -38,6 +38,6 @@ namespace eng
         GLFWwindow* m_window = nullptr;
         InputManager m_inputManager;
         GraphicsAPI m_graphicsAPI;
-        RenderQueue m_renderQueue;
+        RenderQueue m_rederQueue;
     };
 }
